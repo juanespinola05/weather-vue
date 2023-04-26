@@ -1,62 +1,60 @@
 <template>
   <header class="w-full bg-pink-500 h-16 shadow-md">
     <nav class="container h-full flex justify-between flex-col sm:flex-row gap-2 text-white">
-      <RouterLink :to="{ name: 'home' }"> 
+      <RouterLink :to="{ name: 'home' }">
         <div class="flex h-full gap-2 text-2xl items-center font-bold">
           <v-icon name="bi-cloud-sun-fill" scale="2"></v-icon>
           <p>Weather Vue</p>
-        </div>  
+        </div>
       </RouterLink>
 
       <div class="flex gap-3 items-center">
-        <v-icon name="fa-info-circle" scale="1.5" hover animation="wrench" @click="toggleModal"></v-icon>
+        <v-icon
+          name="fa-info-circle"
+          scale="1.5"
+          hover
+          animation="wrench"
+          @click="toggleModal"
+        ></v-icon>
         <v-icon name="hi-solid-plus-circle" scale="1.5" hover animation="wrench"></v-icon>
       </div>
-      <BaseModal
-        @close-modal="toggleModal"
-        :modal-active="modalActive"
-      >
-      <div class="text-black">
-        <h1 class="text-2xl mb-1">About:</h1>
-        <p class="mb-4">
-          The Local Weather allows you to track the current and
-          future weather of cities of your choosing.
-        </p>
-        <h2 class="text-2xl">How it works:</h2>
-        <ol class="list-decimal list-inside mb-4">
-          <li>
-            Search for your city by entering the name into the
-            search bar.
-          </li>
-          <li>
-            Select a city within the results, this will take
-            you to the current weather for your selection.
-          </li>
-          <li>
-            Track the city by clicking on the "+" icon in the
-            top right. This will save the city to view at a
-            later time on the home page.
-          </li>
-        </ol>
+      <BaseModal @close-modal="toggleModal" :modal-active="modalActive">
+        <div class="text-black">
+          <h1 class="text-2xl mb-1">About:</h1>
+          <p class="mb-4">
+            The Local Weather allows you to track the current and future weather of cities of your
+            choosing.
+          </p>
+          <h2 class="text-2xl">How it works:</h2>
+          <ol class="list-decimal list-inside mb-4">
+            <li>Search for your city by entering the name into the search bar.</li>
+            <li>
+              Select a city within the results, this will take you to the current weather for your
+              selection.
+            </li>
+            <li>
+              Track the city by clicking on the "+" icon in the top right. This will save the city
+              to view at a later time on the home page.
+            </li>
+          </ol>
 
-        <h2 class="text-2xl">Removing a city</h2>
-        <p>
-          If you no longer wish to track a city, simply select
-          the city within the home page. At the bottom of the
-          page, there will be am option to delete the city.
-        </p>
-      </div>
+          <h2 class="text-2xl">Removing a city</h2>
+          <p>
+            If you no longer wish to track a city, simply select the city within the home page. At
+            the bottom of the page, there will be am option to delete the city.
+          </p>
+        </div>
       </BaseModal>
     </nav>
   </header>
 </template>
 
 <script setup lang="ts">
-import {RouterLink} from 'vue-router'
+import { RouterLink } from 'vue-router'
 import BaseModal from './BaseModal.vue'
-import { ref } from 'vue';
+import { ref } from 'vue'
 
 const modalActive = ref(false)
 
-const toggleModal = () => modalActive.value = !modalActive.value
+const toggleModal = () => (modalActive.value = !modalActive.value)
 </script>
