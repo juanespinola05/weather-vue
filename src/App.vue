@@ -3,7 +3,9 @@ import { RouterView } from 'vue-router'
 </script>
 
 <template>
-  <RouterView />
+  <div class="flex min-h-screen bg-weather-primary font-Roboto">
+    <RouterView />
+  </div>
 </template>
 
 <style scoped></style>
