@@ -8,12 +8,12 @@
         <Transition name="modal-inner">
           <div
             v-if="modalActive"
-            class="p-4 bg-white max-w-sm max-h-screen overflow-y-scroll rounded-sm"
+            class="p-4 bg-white max-w-sm max-h-screen overflow-y-scroll rounded-lg"
           >
             <slot />
             <button
               @click="$emit('close-modal')"
-              class="rounded-sm text-white mt-8 bg-weather-primary py-2 px-6"
+              class="rounded-lg text-white mt-8 bg-weather-primary py-2 px-6"
             >
               Close
             </button>
