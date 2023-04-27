@@ -1,6 +1,6 @@
 <template>
-  <header class="w-full bg-pink-500 h-16 shadow-md">
-    <nav class="container h-full flex justify-between flex-col sm:flex-row gap-2 text-white">
+  <header class="w-full h-16">
+    <nav class="container h-full flex justify-between gap-2 text-white">
       <RouterLink :to="{ name: 'home' }">
         <div class="flex h-full gap-2 text-2xl items-center font-bold">
           <v-icon name="bi-cloud-sun-fill" scale="2"></v-icon>
