@@ -15,7 +15,15 @@ import {
 
 const app = createApp(App)
 
-addIcons(BiCloudSunFill, FaInfoCircle, HiSolidPlusCircle, IoSearch, MdGrainTwotone, FaTemperatureLow, FaWind)
+addIcons(
+  BiCloudSunFill,
+  FaInfoCircle,
+  HiSolidPlusCircle,
+  IoSearch,
+  MdGrainTwotone,
+  FaTemperatureLow,
+  FaWind
+)
 
 app.component('v-icon', OhVueIcon)
 
