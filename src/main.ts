@@ -3,11 +3,19 @@ import App from './App.vue'
 import router from './router'
 import './assets/main.css'
 import { OhVueIcon, addIcons } from 'oh-vue-icons'
-import { BiCloudSunFill, FaInfoCircle, HiSolidPlusCircle } from 'oh-vue-icons/icons'
+import {
+  BiCloudSunFill,
+  FaInfoCircle,
+  FaTemperatureLow,
+  FaWind,
+  HiSolidPlusCircle,
+  IoSearch,
+  MdGrainTwotone
+} from 'oh-vue-icons/icons'
 
 const app = createApp(App)
 
-addIcons(BiCloudSunFill, FaInfoCircle, HiSolidPlusCircle)
+addIcons(BiCloudSunFill, FaInfoCircle, HiSolidPlusCircle, IoSearch, MdGrainTwotone, FaTemperatureLow, FaWind)
 
 app.component('v-icon', OhVueIcon)
 
