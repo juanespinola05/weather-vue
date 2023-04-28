@@ -3,8 +3,7 @@ import { computed, ref } from 'vue'
 import { useRoute, useRouter } from 'vue-router'
 import { uid } from 'uid'
 import type { Location } from '@/share/types'
-
-const LOCATIONS_SPACE = 'savedLocations'
+import { LOCATIONS_SPACE } from '@/constants/constants'
 
 const route = useRoute()
 const router = useRouter()

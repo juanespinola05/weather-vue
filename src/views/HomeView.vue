@@ -1,5 +1,6 @@
 <script setup lang="ts">
-import SearchInput from '../components/SearchInput.vue'
+import SearchInput from '@/components/SearchInput.vue'
+import PinnedCities from '@/components/PinnedCities.vue'
 import { ref } from 'vue'
 import { useRouter } from 'vue-router'
 import { fetchPlaces } from '../services/places'
@@ -44,7 +45,16 @@ const previewLocation = (locationResult: FeaturesEntity) => {
     <p class="text-red-600 text-center inline-block rounded-lg bg-red-100 p-2" v-if="searchError">
       Something went wrong! Try again later.
     </p>
-    <ul v-else class="flex gap-1 flex-col max-w-md w-full items-center text-gray-300">
+    <p
+      v-else-if="mapboxSearchResult?.length === 0"
+      class="text-center inline-block rounded-lg p-2 bg-blue-100 shadow-lg"
+    >
+      No matches found
+    </p>
+    <ul
+      v-else-if="mapboxSearchResult?.length"
+      class="flex gap-1 flex-col max-w-md w-full items-center text-gray-300"
+    >
       <li
         :title="item.place_name"
         class="line-overflow bg-weather-terciary bg-opacity-60 w-full rounded-lg h-12 p-3 hover:bg-opacity-90 transition-all duration-75"
@@ -55,12 +65,10 @@ const previewLocation = (locationResult: FeaturesEntity) => {
         {{ item.place_name }}
       </li>
     </ul>
-    <p
-      v-if="!searchError && mapboxSearchResult?.length === 0"
-      class="text-center inline-block rounded-lg p-2 bg-blue-100 shadow-lg"
-    >
-      No matches found
-    </p>
+    <Suspense>
+      <PinnedCities v-show="mapboxSearchResult === null && !searchError" />
+      <template #fallback> loading </template>
+    </Suspense>
   </main>
 </template>
 
