@@ -5,7 +5,7 @@ const props = defineProps<{data: DailyEntity }>()
 const icon = (props.data.weather as WeatherEntity[])[0].icon
 const day = new Date(props.data.dt * 1000).toLocaleDateString('en-us', { weekday: 'long' })
 const min = Math.round(props.data.temp.min)
-const max = Math.round(props.data.temp.min)
+const max = Math.round(props.data.temp.max)
 </script>
 <template>
   <div class="grid grid-cols-3 items-center">
