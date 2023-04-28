@@ -8,13 +8,13 @@ export default {
         'weather-secondary': '#134CB5',
         'weather-terciary': '#08244F',
         'weather-quaternary': '#001026'
-      },
+      }
     },
     fontFamily: {
       Roboto: ['Roboto', 'sans-serif']
     },
     container: {
-      padding: "2em",
+      padding: '2em',
       center: true
     },
     screens: {
@@ -22,6 +22,5 @@ export default {
       md: '768px'
     }
   },
-  plugins: [],
+  plugins: []
 }
-
