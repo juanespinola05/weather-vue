@@ -1,6 +1,11 @@
 import { Axios } from 'axios'
 import { openWeatherMapApiKey, openWeatherMapBaseUrl } from '@/constants/environment'
-import type { OpenWeatherData, OpenWeatherResponse } from '@/share/types'
+import type {
+  Location,
+  OpenWeatherCurrentResponse,
+  OpenWeatherData,
+  OpenWeatherResponse
+} from '@/share/types'
 
 const api = new Axios({
   baseURL: openWeatherMapBaseUrl,
@@ -11,7 +16,7 @@ const api = new Axios({
 
 export const getWeatherData = async (lat: string, lng: string): Promise<OpenWeatherData> => {
   try {
-    const weatherData = await api.get<OpenWeatherResponse>('onecall', {
+    const weatherData = await api.get<OpenWeatherResponse>('/3.0/onecall', {
       params: {
         lat,
         lon: lng,
@@ -44,3 +49,19 @@ export const getWeatherData = async (lat: string, lng: string): Promise<OpenWeat
     return {} as OpenWeatherData
   }
 }
+
+export const getCurrentWeatherData = async (
+  location: Location
+): Promise<OpenWeatherCurrentResponse> => {
+  const res = await api.get<OpenWeatherCurrentResponse>('/2.5/weather', {
+    params: {
+      lat: location.coords.lat,
+      lon: location.coords.lng,
+      units: 'metric'
+    }
+  })
+  return typeof res.data === 'string'
+    ? Promise.resolve(JSON.parse(res.data as string))
+    : Promise.resolve(res.data)
+}
+export const mapDataResponse = () => {}
