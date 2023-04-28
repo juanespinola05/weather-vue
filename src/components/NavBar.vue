@@ -1,5 +1,5 @@
 <template>
-  <header class="w-full h-16">
+  <header class="w-full">
     <nav class="container h-full flex justify-between gap-2 text-white">
       <RouterLink :to="{ name: 'home' }">
         <div class="flex h-full gap-2 text-2xl items-center font-bold">
