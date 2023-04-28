@@ -11,7 +11,8 @@ import {
   HiSolidMinusCircle,
   HiSolidPlusCircle,
   IoSearch,
-  MdGrainTwotone
+  MdGrainTwotone,
+  RiRefreshLine
 } from 'oh-vue-icons/icons'
 
 const app = createApp(App)
@@ -24,7 +25,8 @@ addIcons(
   MdGrainTwotone,
   FaTemperatureLow,
   FaWind,
-  HiSolidMinusCircle
+  HiSolidMinusCircle,
+  RiRefreshLine
 )
 
 app.component('v-icon', OhVueIcon)

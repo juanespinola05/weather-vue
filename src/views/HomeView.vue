@@ -5,6 +5,7 @@ import { ref } from 'vue'
 import { useRouter } from 'vue-router'
 import { fetchPlaces } from '../services/places'
 import type { FeaturesEntity } from '@/share/types'
+import LoadingSpinner from '@/components/LoadingSpinner.vue'
 
 const router = useRouter()
 const queryTimeout = ref<number | null>(null)
@@ -67,7 +68,9 @@ const previewLocation = (locationResult: FeaturesEntity) => {
     </ul>
     <Suspense>
       <PinnedCities v-show="mapboxSearchResult === null && !searchError" />
-      <template #fallback> loading </template>
+      <template #fallback>
+        <LoadingSpinner />
+      </template>
     </Suspense>
   </main>
 </template>
