@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { capitalizeAll } from '@/utils/string'
+import WeatherIcon from './WeatherIcon.vue'
 
 const props = defineProps({
   weatherDescription: {
@@ -23,17 +24,16 @@ const props = defineProps({
     required: true
   }
 })
-const iconName = `${props.icon}.svg`
 const capitalizedDescription = capitalizeAll(props.weatherDescription)
 const tempetureDetails = `Max.: ${Math.round(props.maxTemp)}° Min.: ${Math.round(props.minTemp)}°`
 const roundedTemperature = Math.round(props.temp)
 </script>
 
 <template>
-  <img
-    class="h-40 w-56 object-cover drop-shadow-2xl"
-    :src="`/dark/${iconName}`"
-    :alt="capitalizedDescription"
+  <WeatherIcon
+    class="h-40 w-56 object-cover"
+    :icon="props.icon"
+    :description="props.weatherDescription"
   />
   <p class="font-bold text-7xl">{{ roundedTemperature }}°</p>
   <div class="text-gray-300 text-center">

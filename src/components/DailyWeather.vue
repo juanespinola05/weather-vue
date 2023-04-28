@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import type { DailyEntity, WeatherEntity } from '@/share/types'
+import WeatherIcon from './WeatherIcon.vue'
 
 const props = defineProps<{ data: DailyEntity }>()
 const icon = (props.data.weather as WeatherEntity[])[0].icon
@@ -10,7 +11,7 @@ const max = Math.round(props.data.temp.max)
 <template>
   <div class="grid grid-cols-3 items-center">
     <p class="font-medium">{{ day }}</p>
-    <img class="w-10 place-self-center" :src="`/dark/${icon}.svg`" alt="" />
+    <WeatherIcon class="w-10 place-self-center" :icon="icon" :description="''" />
     <div class="justify-self-end">
       <p>
         {{ min }}°
