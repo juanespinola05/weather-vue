@@ -8,6 +8,7 @@ import {
   FaInfoCircle,
   FaTemperatureLow,
   FaWind,
+  HiSolidMinusCircle,
   HiSolidPlusCircle,
   IoSearch,
   MdGrainTwotone
@@ -22,7 +23,8 @@ addIcons(
   IoSearch,
   MdGrainTwotone,
   FaTemperatureLow,
-  FaWind
+  FaWind,
+  HiSolidMinusCircle
 )
 
 app.component('v-icon', OhVueIcon)

@@ -9,9 +9,7 @@ import NavBar from './components/NavBar.vue'
   >
     <NavBar></NavBar>
     <RouterView />
-    <footer class="pt-12">
-
-    </footer>
+    <footer class="pt-12"></footer>
   </div>
 </template>
 

@@ -7,6 +7,7 @@ import WeatherDataBar from './WeatherDataBar.vue'
 import HourlyWeather from './HourlyWeather.vue'
 import type { DailyEntity } from '@/share/types'
 import DailyWeather from './DailyWeather.vue'
+import ToggleLocationPin from './ToggleLocationPin.vue'
 
 const route = useRoute()
 
@@ -17,7 +18,7 @@ const fetchData = async () => {
 let weatherData = await fetchData()
 
 const { description, icon } = (weatherData?.current.weather as any)[0]
-const daily = (weatherData.daily as DailyEntity[])
+const daily = weatherData.daily as DailyEntity[]
 const now = daily[0]
 const minTemp = now.temp.min
 const maxTemp = now.temp.max
@@ -25,7 +26,7 @@ const cityName = (route.params.city as string).replace(/_/gi, ' ')
 
 const date = new Date(weatherData?.currentTime || 0)
 const computedDates = {
-  shorter: date.toLocaleDateString('en-us', { month: 'short', day: 'numeric'}),
+  shorter: date.toLocaleDateString('en-us', { month: 'short', day: 'numeric' }),
   short: date.toLocaleDateString('en-us', {
     weekday: 'short',
     day: '2-digit',
@@ -46,16 +47,21 @@ const computedDates = {
         :icon="icon"
       />
       <CardContainer class="w-full mt-4">
-        <h1 class="text-2xl font-medium">{{ cityName }}</h1>
-        <p class="text-sm text-gray-300">
-          {{ computedDates.short + ' ' + computedDates.time }}
-        </p>
+        <div class="flex justify-between items-center">
+          <div>
+            <h1 class="text-2xl font-medium">{{ cityName }}</h1>
+            <p class="text-sm text-gray-300">
+              {{ computedDates.short + ' ' + computedDates.time }}
+            </p>
+          </div>
+          <ToggleLocationPin />
+        </div>
       </CardContainer>
       <WeatherDataBar
         :humidity="now.humidity"
         :feels_like="weatherData?.current.feels_like"
         :wind="now.wind_speed"
-        />
+      />
     </div>
     <CardContainer class="mt-4 text-white">
       <h2 class="text-lg font-bold">Hourly</h2>

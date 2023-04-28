@@ -16,7 +16,6 @@
           animation="wrench"
           @click="toggleModal"
         ></v-icon>
-        <v-icon name="hi-solid-plus-circle" scale="1.5" hover animation="wrench"></v-icon>
       </div>
       <BaseModal @close-modal="toggleModal" :modal-active="modalActive">
         <div class="text-black">
