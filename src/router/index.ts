@@ -8,14 +8,25 @@ const router = createRouter({
     {
       path: '/',
       name: 'home',
-      component: HomeView
+      component: HomeView,
+      meta: {
+        title: 'Home'
+      }
     },
     {
       path: '/weather/:state/:city',
       name: 'locationView',
-      component: LocationView
+      component: LocationView,
+      meta: {
+        title: 'Local'
+      }
     }
   ]
+})
+
+router.beforeEach((to, from, next) => {
+  document.title = `${to.meta.title as string} | Weather Vue`
+  next()
 })
 
 export default router
