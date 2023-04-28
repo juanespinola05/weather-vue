@@ -123,3 +123,13 @@ export interface FeelsLike {
   eve: number
   morn: number
 }
+
+export interface Location {
+  id: string
+  state: string
+  city: string
+  coords: {
+    lat: string
+    lng: string
+  }
+}
