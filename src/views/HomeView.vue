@@ -26,14 +26,15 @@ const getSearchResults = (query: string) => {
 }
 
 const previewLocation = (locationResult: FeaturesEntity) => {
-  const [city, state] = locationResult.place_name.split(',').map((e) => e.replace(/\s/gi, '_'))
+  const [city, state] = locationResult.place_name
+    .split(',')
+    .map((e) => e.trim().replace(/\s/gi, '_'))
   router.push({
     name: 'locationView',
     params: { state, city },
     query: {
       lat: (locationResult.geometry.coordinates as number[])[1],
-      lng: (locationResult.geometry.coordinates as number[])[0],
-      preview: 'true'
+      lng: (locationResult.geometry.coordinates as number[])[0]
     }
   })
 }
