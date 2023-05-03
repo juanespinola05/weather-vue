@@ -28,7 +28,8 @@ const navigateToLocation = (loc: LocationData) => {
     },
     query: {
       lat: loc.coords.lat,
-      lng: loc.coords.lng
+      lng: loc.coords.lng,
+      id: loc.id
     }
   })
 }
